@@ -8,44 +8,47 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#000,#2b0035,#ff2d75);
+height:100vh;
 overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+background:linear-gradient(135deg,#000,#2b0035,#ff2d75);
 color:white;
 }
 
 .container{
 text-align:center;
 z-index:2;
+padding:20px;
 }
 
 h1{
-font-size:45px;
+font-size:42px;
 text-shadow:0 0 20px hotpink;
-margin-bottom:20px;
+margin-bottom:15px;
+animation:glow 2s infinite;
 }
 
 p{
 font-size:20px;
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 #gift{
 font-size:120px;
 cursor:pointer;
-transition:.5s;
 animation:bounce 2s infinite;
+transition:.4s;
 }
 
 #gift:hover{
@@ -64,7 +67,22 @@ box-shadow:0 0 30px hotpink;
 display:none;
 font-size:28px;
 margin-top:20px;
+line-height:1.5;
 animation:fade 2s;
+}
+
+#musicBtn{
+position:fixed;
+top:20px;
+right:20px;
+padding:10px 18px;
+border:none;
+border-radius:30px;
+background:#ff2d75;
+color:white;
+cursor:pointer;
+font-size:16px;
+box-shadow:0 0 15px hotpink;
 }
 
 .heart{
@@ -72,10 +90,16 @@ position:fixed;
 top:-50px;
 font-size:25px;
 animation:fall linear infinite;
+pointer-events:none;
 }
 
 @keyframes bounce{
+0%,100%{transform:translateY(0);}
 50%{transform:translateY(-15px);}
+}
+
+@keyframes glow{
+50%{text-shadow:0 0 40px deeppink;}
 }
 
 @keyframes fade{
@@ -93,16 +117,18 @@ transform:translateY(110vh);
 opacity:0;
 }
 }
+
 </style>
-
 </head>
-
 <body>
+
 <button id="musicBtn">🎵 Music</button>
+
 <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/ mpeg">
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
- <div class="container">
+
+<div class="container">
 
 <h1>🎉 Happy Birthday My Love ❤️</h1>
 
@@ -110,11 +136,13 @@ opacity:0;
 
 <div id="gift">🎁</div>
 
-<img src="gift.jpg" id="photo">
+<img src="gift.jpg" id="photo" alt="Gift Image">
 
 <div id="love">
 ❤️ You Are The Best Gift Of My Life ❤️
 <br><br>
+Forever & Always 💖
+<br>
 I Love You Forever ♾️
 </div>
 
@@ -122,17 +150,19 @@ I Love You Forever ♾️
 
 <script>
 
-let gift=document.getElementById("gift");
+const gift=document.getElementById("gift");
+const photo=document.getElementById("photo");
+const love=document.getElementById("love");
 
 gift.onclick=function(){
 
-gift.innerHTML="🎀";
+gift.style.display="none";
 
-document.getElementById("photo").style.display="block";
+photo.style.display="block";
 
-document.getElementById("love").style.display="block";
+love.style.display="block";
 
-}
+};
 
 function heart(){
 
@@ -140,7 +170,7 @@ let h=document.createElement("div");
 
 h.className="heart";
 
-h.innerHTML="❤️";
+h.innerHTML=["❤️","💖","💕","💗"][Math.floor(Math.random()*4)];
 
 h.style.left=Math.random()*100+"vw";
 
@@ -149,9 +179,7 @@ h.style.animationDuration=(3+Math.random()*3)+"s";
 document.body.appendChild(h);
 
 setTimeout(()=>{
-
 h.remove();
-
 },6000);
 
 }
@@ -161,10 +189,25 @@ const musicBtn = document.getElementById("musicBtn");
 const bgMusic = document.getElementById("bgMusic");
 
 musicBtn.addEventListener("click", function () {
-    bgMusic.play();
-    musicBtn.style.display = "none";
+
+    if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.innerHTML = "⏸️ Pause Music";
+    } else {
+        bgMusic.pause();
+        musicBtn.innerHTML = "🎵 Music";
+    }
+
 });
+
+// Browser agar autoplay allow kare to music chalane ki koshish karega
+window.addEventListener("load", () => {
+    bgMusic.play().catch(() => {
+        // Browser ne autoplay block kiya, user Music button dabayega to chal jayega.
+    });
+});
+
 </script>
 
 </body>
-</html>
+</html>    
