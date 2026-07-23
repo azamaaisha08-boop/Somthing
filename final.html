@@ -98,8 +98,11 @@ opacity:0;
 </head>
 
 <body>
-
-<div class="container">
+<button id="musicBtn">🎵 Music</button>
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/ mpeg">
+</audio>
+ <div class="container">
 
 <h1>🎉 Happy Birthday My Love ❤️</h1>
 
@@ -154,7 +157,13 @@ h.remove();
 }
 
 setInterval(heart,300);
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
 
+musicBtn.addEventListener("click", function () {
+    bgMusic.play();
+    musicBtn.style.display = "none";
+});
 </script>
 
 </body>
