@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#000,#2b0035,#ff2d75);
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+.container{
+text-align:center;
+z-index:2;
+}
+
+h1{
+font-size:45px;
+text-shadow:0 0 20px hotpink;
+margin-bottom:20px;
+}
+
+p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+#gift{
+font-size:120px;
+cursor:pointer;
+transition:.5s;
+animation:bounce 2s infinite;
+}
+
+#gift:hover{
+transform:scale(1.1);
+}
+
+#photo{
+display:none;
+width:280px;
+border-radius:20px;
+margin-top:25px;
+box-shadow:0 0 30px hotpink;
+}
+
+#love{
+display:none;
+font-size:28px;
+margin-top:20px;
+animation:fade 2s;
+}
+
+.heart{
+position:fixed;
+top:-50px;
+font-size:25px;
+animation:fall linear infinite;
+}
+
+@keyframes bounce{
+50%{transform:translateY(-15px);}
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 Happy Birthday My Love ❤️</h1>
+
+<p>Click the Gift 🎁</p>
+
+<div id="gift">🎁</div>
+
+<img src="gift.jpg" id="photo">
+
+<div id="love">
+❤️ You Are The Best Gift Of My Life ❤️
+<br><br>
+I Love You Forever ♾️
+</div>
+
+</div>
+
+<script>
+
+let gift=document.getElementById("gift");
+
+gift.onclick=function(){
+
+gift.innerHTML="🎀";
+
+document.getElementById("photo").style.display="block";
+
+document.getElementById("love").style.display="block";
+
+}
+
+function heart(){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.remove();
+
+},6000);
+
+}
+
+setInterval(heart,300);
+
+</script>
+
+</body>
+</html>
