@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Letter ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#000,#2b0035,#ff2d75);
+font-family:Poppins,sans-serif;
+overflow:hidden;
+}
+
+.box{
+
+width:90%;
+max-width:420px;
+padding:30px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border-radius:20px;
+text-align:center;
+color:white;
+box-shadow:0 0 30px rgba(255,0,120,.4);
+
+}
+
+h1{
+
+margin-bottom:20px;
+
+}
+
+#text{
+
+font-size:18px;
+line-height:1.8;
+min-height:180px;
+
+}
+
+button{
+
+margin-top:25px;
+padding:14px 35px;
+border:none;
+border-radius:40px;
+background:#ff2d75;
+color:white;
+font-size:18px;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>💌 My Love</h1>
+
+<p id="text"></p>
+
+<button onclick="nextPage()">
+Next ❤️
+</button>
+
+</div>
+
+<script>
+
+const message="Happy Birthday My Love ❤️ Every moment with you is the most beautiful part of my life. Thank you for bringing happiness, love and countless smiles into my world. Today is your special day and I hope all your dreams come true. I Love You Forever ❤️";
+
+let i=0;
+
+function type(){
+
+if(i<message.length){
+
+document.getElementById("text").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(type,40);
+
+}
+
+}
+
+type();
+
+function nextPage(){
+
+window.location.href="gallery.html";
+
+}
+
+</script>
+
+</body>
+</html>
