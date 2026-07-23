@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Cake ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#000,#2b0035,#ff2d75);
+font-family:Poppins,sans-serif;
+overflow:hidden;
+}
+
+.container{
+text-align:center;
+color:white;
+}
+
+h1{
+font-size:40px;
+margin-bottom:30px;
+text-shadow:0 0 20px hotpink;
+}
+
+.cake{
+font-size:160px;
+animation:bounce 2s infinite;
+}
+
+button{
+margin-top:35px;
+padding:15px 40px;
+border:none;
+border-radius:50px;
+background:#ff2d75;
+color:white;
+font-size:20px;
+cursor:pointer;
+box-shadow:0 0 25px hotpink;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 Happy Birthday My Love ❤️</h1>
+
+<div class="cake">🎂</div>
+
+<p>May your life always be filled with happiness, smiles and love. ❤️</p>
+
+<button onclick="window.location.href='final.html'">
+Final Surprise ❤️
+</button>
+
+</div>
+
+</body>
+</html>
