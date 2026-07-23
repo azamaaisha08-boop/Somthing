@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-family:Poppins,sans-serif;
+overflow:hidden;
+}
+
+.slider{
+width:90%;
+max-width:400px;
+height:520px;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 0 35px rgba(255,0,120,.5);
+position:relative;
+}
+
+.slider img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+opacity:0;
+transition:opacity 1s;
+}
+
+.slider img.active{
+opacity:1;
+}
+
+h2{
+position:absolute;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+color:white;
+z-index:10;
+text-shadow:0 0 10px hotpink;
+}
+
+#next{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+padding:14px 35px;
+border:none;
+border-radius:30px;
+background:#ff2d75;
+color:white;
+font-size:18px;
+cursor:pointer;
+z-index:10;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>❤️ Our Beautiful Memories ❤️</h2>
+
+<div class="slider">
+
+<img src="images/1.jpg" class="active">
+<img src="images/2.jpg">
+<img src="images/3.jpg">
+<img src="images/4.jpg">
+<img src="images/5.jpg">
+
+</div>
+
+<button id="next">Next ❤️</button>
+
+<script>
+
+const slides=document.querySelectorAll(".slider img");
+
+let index=0;
+
+setInterval(()=>{
+
+slides[index].classList.remove("active");
+
+index=(index+1)%slides.length;
+
+slides[index].classList.add("active");
+
+},2500);
+
+document.getElementById("next").onclick=()=>{
+
+window.location.href="cake.html";
+
+}
+
+</script>
+
+</body>
+</html>
